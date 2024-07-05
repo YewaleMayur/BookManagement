@@ -1,0 +1,83 @@
+Testing with Postman:
+Register a new user
+
+Endpoint: POST /api/register
+Body:
+json
+Copy code
+{
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "password": "password123"
+}
+Login a user
+
+Endpoint: POST /api/login
+Body:
+json
+Copy code
+{
+    "username": "testuser",
+    "password": "password123"
+}
+These changes ensure that the email field is provided and unique, preventing the duplicate key error you encountered.
+Add a new book
+
+Endpoint: POST /api/books
+Headers:
+json
+Copy code
+{
+    "Authorization": "Bearer YOUR_JWT_TOKEN"
+}
+Body (form-data):
+vbnet
+Copy code
+title: Book Title
+author: Author Name
+genre: Genre
+coverImage: [Select an image file]
+Get all books
+
+Endpoint: GET /api/books
+Update a book
+
+Endpoint: PUT /api/books/:id
+Headers:
+json
+Copy code
+{
+    "Authorization": "Bearer YOUR_JWT_TOKEN"
+}
+Body:
+json
+Copy code
+{
+    "title": "Updated Title",
+    "author": "Updated Author",
+    "genre": "Updated Genre"
+}
+Delete a book
+
+Endpoint: DELETE /api/books/:id
+Headers:
+json
+Copy code
+{
+    "Authorization": "Bearer YOUR_JWT_TOKEN"
+}
+Add a review for a book
+
+Endpoint: POST /api/books/:id/reviews
+Headers:
+json
+Copy code
+{
+    "Authorization": "Bearer YOUR_JWT_TOKEN"
+}
+Body:
+json
+Copy code
+{
+    "reviewText": "Great book!"
+}
